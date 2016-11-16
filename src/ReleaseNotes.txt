@@ -1,0 +1,19 @@
+Release Notes
+
+Version 1.0
+Brand new release of Exabyte. This is currently a single node storage engine.
+
+Performance Results 
+ 
+Setup: 
+ExaVenger server and perf test client (modified db_bench.cpp from leveldb) are run from two different AP v13 machines that belong to different podsets: HK2SCH010230935 and HK2SCH010280834.  
+30k data record size, 500k records 
+  
+Result Summary 
+Test 	Median Latency 	P99 Latency 	QPS 	Notes 
+1 Thread Writes 	948us 	 	1195us 	1600 	Throughput 47.1Ms 
+1 Thread Reads 	1029us 	 	1198us 	1300 	 
+2 Thread Reads 	987us 	 	1350us 	2800 	 
+3 Thread Reads 	1032us 	 	2431us 	3500 	 
+ 
+CPU usage reached 7 percent at one point, stayed under 5 percent most of the time. Memory consumption smaller than 1G, machine’s CPU usage stays under 5%.

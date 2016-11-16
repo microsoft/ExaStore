@@ -1,0 +1,47 @@
+nuget{
+    nuspec{
+        id = exavenger;
+        version : 0.0.0.1;
+        title: Exabyte Scavenger Storage Engine;
+        authors: {Microsoft Corporation};
+        owners: {Chen Fu, Tanj Bennett, Ashwini Khade, Tianlong Chen};
+        projectUrl: "https://msasg.visualstudio.com/defaultcollection/Bing_STC-SV/ExaVenger%20Team/_git/ExaVenger";
+		LicenseUrl: "";
+		IconUrl: "";
+        requireLicenseAcceptance:false;
+        summary:Exabyte Scavenger a stable and low cost storage engine for Key-Value store.
+
+
+        description: @"This is a storage engine with low resource consumption and stable behaver. 
+		We use a special key index, circular file structure and a novel garbage collection algorithm.
+		
+		As a result, there is no CPU and memory usage spikes caused by compactions in traditional log
+		structured merge tree storage engine. Our overall CPU and memory usage are significantly smaller
+		while our performance is on par. We also reduces write amplifcation thus prolong SSD live.
+        ";
+        releaseNotes: "First test of exabyte package.";
+        copyright: Copyright 2016;
+        tags: { native, Exabyte, ExaVenger };
+    }
+	
+	files {
+        #defines {
+            OUT_PUT = .\;
+        }
+		
+		include: { "${OUT_PUT}ServerLib\*.hpp", "${OUT_PUT}EBCommon\*.hpp", "${OUT_PUT}EBCommon\*.h" };
+		
+        [x64,debug] { 
+            lib: ${OUT_PUT}x64\Debug\EBServerLib.lib;
+            symbols: ${OUT_PUT}x64\Debug\EBServerLib.pdb;
+        }
+
+        [x64,release] { 
+            lib: ${OUT_PUT}x64\Release\EBServerLib.lib;
+            symbols: ${OUT_PUT}x64\Release\EBServerLib.pdb;
+        }
+
+    }
+
+}
+

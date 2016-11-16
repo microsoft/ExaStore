@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExaVengerCounters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- This file defines perf counters for the system. This should be
+    compiled into an hpp and cpp file by a powershell script-->
+
+    <Actions>
+        <!-- Actions, each action would have a start and end, corresponding to
+        LogActionStart and LogActionEnd.
+        The watch dog should be able to compute latency of each action based
+        on time stamp of the ETW event.  The watch dog should also produce a
+        percentile counter to monitor how often each action is performed.
+        Since the LogActionEnd function carries a result error code, the
+        watch dog could also measure the success and failure rate. -->
+
+        <Action>PartitionRead</Action>
+        <Action>PartitionWrite</Action>
+        <Action>MemStoreRead</Action>
+        <Action>MemStoreReadHeader</Action>
+        <Action>MemStoreWrite</Action>
+        <Action>DiskStoreRead</Action>
+        <Action>DiskRead</Action>
+        <Action>DiskWrite</Action>
+        <Action>CatalogStoreRead</Action>
+        <Action>CatalogStoreWrite</Action>
+        <Action>AddPartition</Action>
+        <Action>ClientRead</Action>
+        <Action>ClientWrite</Action>
+        <Action>ClientDelete</Action>
+        <Action>HashBlockLoad</Action>
+        <Action>HashBlockFlush</Action>
+        <Action>ShadowBlockLoad</Action>
+        <Action>ShadowBlockFlush</Action>
+        <Action>CatalogCompaction</Action>
+    </Actions>
+
+    <Meters>
+        <!-- Meters, simple measurement, such as free memory in the memory store -->
+        <Meter>MemSweepEdge</Meter>
+        <Meter>FileIoQueLen</Meter>
+        <Meter>PartitionUpdateQueLen</Meter>
+        <Meter>RIOAvailableSend</Meter>
+        <Meter>RIOAvailableRcv</Meter>
+        <Meter>MemoryStoreAvailableBytes</Meter>
+        <Meter>FileStoreAvailableBytes</Meter>
+        <Meter>FileStoreWriteEdge</Meter>
+        <Meter>CatalogFlushQueLen</Meter>
+        <Meter>AvailableArenas</Meter>
+        <Meter>NumbersOfIO</Meter>
+        <Meter>TracerMapSize</Meter>
+        <Meter>InMemHashBlksAcquired</Meter>
+        <Meter>KeysInPartition</Meter>
+        <Meter>GCVersion</Meter>
+    </Meters>
+</ExaVengerCounters>
+

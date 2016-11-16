@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.lamport.tla.toolbox.tool.tlc.modelCheck">
+<stringAttribute key="TLCCmdLineParameters" value=""/>
+<intAttribute key="autoLockTime" value="15"/>
+<stringAttribute key="configurationName" value="OnlyOnePrimary"/>
+<intAttribute key="dfidDepth" value="100"/>
+<booleanAttribute key="dfidMode" value="false"/>
+<intAttribute key="distributedFPSetCount" value="0"/>
+<stringAttribute key="distributedNetworkInterface" value="10.161.20.247"/>
+<stringAttribute key="distributedTLC" value="off"/>
+<stringAttribute key="distributedTLCVMArgs" value=""/>
+<intAttribute key="fpBits" value="0"/>
+<intAttribute key="fpIndex" value="1"/>
+<intAttribute key="maxHeapSize" value="77"/>
+<intAttribute key="maxSetSize" value="500"/>
+<booleanAttribute key="mcMode" value="true"/>
+<stringAttribute key="modelBehaviorInit" value=""/>
+<stringAttribute key="modelBehaviorNext" value=""/>
+<stringAttribute key="modelBehaviorSpec" value="TwoCommittedState /\ [][Next]_vars"/>
+<intAttribute key="modelBehaviorSpecType" value="1"/>
+<stringAttribute key="modelBehaviorVars" value="remoteDecree, store, pendingConsolidatePoint, clock, pc, completeConfig, channel, count, membership, rcvTime, newItem, committed, frozenReplica, pendingPrimary, clientNotified, nextBallot, timer, curConfig"/>
+<booleanAttribute key="modelCorrectnessCheckDeadlock" value="true"/>
+<listAttribute key="modelCorrectnessInvariants">
+<listEntry value="1NoConflict"/>
+<listEntry value="0~(\E i \in Replicas: \E j \in Replicas: i/=j /\ ~membership[i].alive[2] /\ membership[i] = membership[j])"/>
+<listEntry value="0~(clientNotified &gt; 2)"/>
+<listEntry value="1NoConflictingPrepare"/>
+<listEntry value="0~(\E ms \in channel : ms.type \in {&quot;PRIMARY_TIMEOUT&quot;})"/>
+<listEntry value="0~((clock - rcvTime[2][1]) &gt; (Lease+Grace))"/>
+<listEntry value="0~(membership[1].p = 1 /\ membership[2].p = 2 /\ (clock-rcvTime[1][2] &gt; Lease))"/>
+<listEntry value="0~(\A i \in Replicas: membership[i].p = 2 )"/>
+<listEntry value="1PrepareBeforeCommit"/>
+<listEntry value="1SecondaryInvariant"/>
+</listAttribute>
+<listAttribute key="modelCorrectnessProperties"/>
+<stringAttribute key="modelExpressionEval" value=""/>
+<stringAttribute key="modelParameterActionConstraint" value=""/>
+<listAttribute key="modelParameterConstants">
+<listEntry value="MaxItem;;8;0;0"/>
+<listEntry value="TotalReplicas;;3;0;0"/>
+<listEntry value="MsgDelay;;3;0;0"/>
+<listEntry value="Interval;;2;0;0"/>
+</listAttribute>
+<stringAttribute key="modelParameterContraint" value="/\ Cardinality(channel) &lt; 8 &#13;&#10;/\ clock &lt; 20"/>
+<listAttribute key="modelParameterDefinitions"/>
+<stringAttribute key="modelParameterModelValues" value="{}"/>
+<stringAttribute key="modelParameterNewDefinitions" value=""/>
+<intAttribute key="numberOfWorkers" value="24"/>
+<booleanAttribute key="recover" value="false"/>
+<stringAttribute key="result.mail.address" value=""/>
+<intAttribute key="simuAril" value="-1"/>
+<intAttribute key="simuDepth" value="100"/>
+<intAttribute key="simuSeed" value="-1"/>
+<stringAttribute key="specName" value="TwoLevelFailOver"/>
+<stringAttribute key="view" value=""/>
+</launchConfiguration>
