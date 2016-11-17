@@ -23,7 +23,7 @@ open Exabytes.sln using Visual Studio.
 
 Under `Solution Exabytes`, `ExaServer` project compiles into the stand alone exe which is the
 storage engine. `ExaBroker` compiles into a library that knows how to communicate with
-the storage engine using UDP protocol. `FixedServerTestClient` is a modified db_bench (stolen
+the storage engine using UDP protocol. `FixedServerTestClient` is a modified db_bench (derived
 from RocksDB) that serves as a performance test engine.  `EBTest` contains unit tests. 
 `UdpTestApp` and `UdpTestClient` are test programs for a network transportation protocol
 built on top of UDP.
