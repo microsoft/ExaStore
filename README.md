@@ -1,12 +1,13 @@
-# ExaStore
+# Exabyte Store
 
 A Key-Value pair storage engine that is the basic building block of large scale low cost
 storage solutions. 
 
-ExaStore reduce overall storage cost and improves performance at the same time by reducing
-write amplification comparing with widely used LSM based storage engines such as RocksDB
-and HBase. Write amplifications not only hurt SSD life, but also occupies majority of the
-I/O bandwith, leaving only a tiny portion to the client.
+## Why Another Store?
+
+Log Structured Merge tree (LSM) is the dominant choice of data organization in storage engines.
+LSMs insist on storing records sequentially by constantly sorting them, racking up write
+amplifications, reducing available I/O bandwidth and hurting SSD life.
 
 ExaStore uses an innovative hash based index for high performance and low cost. ExaStore
 consumes on average 3 bytes DRAM per key, and achives much lower write amplifications
@@ -28,7 +29,7 @@ from RocksDB) that serves as a performance test engine.  `EBTest` contains unit 
 `UdpTestApp` and `UdpTestClient` are test programs for a network transportation protocol
 built on top of UDP.
 
-
+## Documents
 
 
 
