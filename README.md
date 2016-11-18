@@ -9,11 +9,14 @@ Log Structured Merge tree (LSM) is the dominant choice of data organization in s
 LSMs insist on storing records sequentially by constantly sorting them, racking up write
 amplifications, reducing available I/O bandwidth and hurting SSD life.
 
-ExaStore uses an innovative hash based index for high performance and low cost. ExaStore
+Exabyte Store uses an innovative hash based index for high performance and low cost. ExaStore
 consumes on average 3 bytes DRAM per key, and achives much lower write amplifications
 since we don't have to sort the data all the time.
 
 ## Code
+
+Our goal is to build a low cost, distributed and replicated storage system. Currently
+only the single node storage engine is finished.
 
 Unlike RocksDB, ExaStore is not a linkable libary in its current form. It is built as a
 stand alone exe accepting read and write request via UDP. 
@@ -28,6 +31,13 @@ the storage engine using UDP protocol. `FixedServerTestClient` is a modified db_
 from RocksDB) that serves as a performance test engine.  `EBTest` contains unit tests. 
 `UdpTestApp` and `UdpTestClient` are test programs for a network transportation protocol
 built on top of UDP.
+
+## Specification
+
+To ensure the correctness of the network related component, we rely on formal specification
+and model checking tool TLA+. There are two specs under directory `spec`, one is an UDP based
+network protocol that allows you to transport data larger than a single UDP packet. The second
+is the replication protocol.
 
 ## Documents
 
