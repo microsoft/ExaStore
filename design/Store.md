@@ -181,5 +181,5 @@ the first part, and how much space we have left for new data.
 
 ### File Store and Venger Index
 
-See [our blog post](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/) 
+See [our blog post](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/why-pay-for-soring-if-you-dont-need-it-3-of-3/) 
 for details.
