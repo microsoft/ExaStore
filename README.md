@@ -6,12 +6,18 @@ storage solutions.
 ## Why Another Store?
 
 Log Structured Merge tree (LSM) is the dominant choice of data organization in storage engines.
-LSMs insist on storing records sequentially by constantly sorting them, racking up write
-amplifications, reducing available I/O bandwidth and hurting SSD life.
+LSMs insist on storing records sequentially by constantly sorting them, racking up high write
+amplifications, wasting vast majority of the available I/O bandwidth and hurting SSD life.
 
 Exabyte Store uses an innovative hash based index for high performance and low cost. ExaStore
 consumes on average 3 bytes DRAM per key, and achives much lower write amplifications
 since we don't have to sort the data all the time.
+
+More detailed discussion can be found in the blogs below.
+
+[Overview](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/sorting_cost/)
+[LSM Tree Compaction is Costly](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
+[An Low Cost Alternative](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
 
 ## Code
 
@@ -41,5 +47,7 @@ is the replication protocol.
 
 ## Documents
 
-
+Design documents can be found in `design` directory.  `Store.md` file describe high
+level design of the storage server. Documents under `Manager` directory are related
+to planed Exabyte Manager component that orchestrate a distributed storage solution.
 
