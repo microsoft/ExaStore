@@ -15,9 +15,9 @@ since we don't have to sort the data all the time.
 
 More detailed discussion can be found in the blogs below.
 
-[Overview](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/sorting_cost/)
-[LSM Tree Compaction is Costly](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
-[An Low Cost Alternative](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
+- [Overview](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/sorting_cost/)
+- [LSM Tree Compaction is Costly](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
+- [An Low Cost Alternative](https://blogs.msdn.microsoft.com/chenfucsperfthoughts/2016/09/12/lsm_compaction/)
 
 ## Code
 
